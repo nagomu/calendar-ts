@@ -5,6 +5,11 @@
   "author": "@nagomu",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --ext .ts,.tsx --cache --cache-location=.cache/eslint src",
+    "lint:fix": "yarn lint --fix"
+  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all"
