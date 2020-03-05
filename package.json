@@ -5,6 +5,10 @@
   "author": "@nagomu",
   "license": "MIT",
   "private": true,
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "devDependencies": {
     "prettier": "^1.19.1"
   }
