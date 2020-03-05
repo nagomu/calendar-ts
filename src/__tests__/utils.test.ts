@@ -1,4 +1,5 @@
 import {
+  calendarDays,
   daysOfMonth,
   formatDate,
   isToday,
@@ -51,5 +52,16 @@ describe('daysOfMonth', () => {
     const expected = [];
     for (let i = 1; i <= 29; i++) expected.push(i);
     expect(daysOfMonth(2020, 1)).toEqual(expected);
+  });
+});
+
+describe('calendarDays', () => {
+  it('returns value correctly', () => {
+    jest.spyOn(Date, 'now').mockReturnValue(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
+    const days = calendarDays(2020, 0);
+    expect(days[0].date.getDate()).toEqual(1);
+    expect(days[0].isToday).toEqual(true);
+    expect(days[30].date.getDate()).toEqual(31);
+    expect(days[30].isToday).toEqual(false);
   });
 });

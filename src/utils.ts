@@ -1,3 +1,5 @@
+import { CalendarDate } from './';
+
 export const formatDate = (date: Date): string =>
   new Intl.DateTimeFormat('en-US').format(date);
 
@@ -17,3 +19,11 @@ export const range = (start: number, end: number): number[] => {
 
 export const daysOfMonth = (year: number, month: number): number[] =>
   range(1, lastDayOfMonth(year, month));
+
+export const calendarDays = (year: number, month: number): CalendarDate[] => {
+  const today = new Date(Date.now());
+  return daysOfMonth(year, month).map(i => {
+    const date = new Date(Date.UTC(year, month, i, 0, 0, 0));
+    return { date, isToday: isToday(date, today) };
+  });
+};
