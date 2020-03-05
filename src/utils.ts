@@ -32,3 +32,9 @@ export const calendarDays = (year: number, month: number): CalendarDate[] => {
     return { date, isToday: isToday(date, today) };
   });
 };
+
+export const fill = (days: CalendarDate[]): Array<CalendarDate | undefined> => {
+  const first = range(1, firstDay(days)).map(() => undefined);
+  const last = range(1, 6 - lastDay(days)).map(() => undefined);
+  return [...first, ...days, ...last];
+};

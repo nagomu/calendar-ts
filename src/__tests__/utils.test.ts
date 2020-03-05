@@ -1,6 +1,7 @@
 import {
   calendarDays,
   daysOfMonth,
+  fill,
   firstDay,
   formatDate,
   isToday,
@@ -81,5 +82,20 @@ describe('calendarDays', () => {
     expect(days[0].isToday).toEqual(true);
     expect(days[30].date.getDate()).toEqual(31);
     expect(days[30].isToday).toEqual(false);
+  });
+});
+
+describe('fill', () => {
+  it('returns value correctly', () => {
+    jest.spyOn(Date, 'now').mockReturnValue(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
+    const days = fill(calendarDays(2020, 0));
+    expect(days.length).toEqual(35);
+    expect(days[0]).toEqual(undefined);
+    expect(days[1]).toEqual(undefined);
+    expect(days[2]).toEqual(undefined);
+    expect(days[3]?.date.getDate()).toEqual(1);
+    expect(days[3]?.isToday).toEqual(true);
+    expect(days[33]?.date.getDate()).toEqual(31);
+    expect(days[34]).toEqual(undefined);
   });
 });
