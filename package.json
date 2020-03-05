@@ -4,5 +4,8 @@
   "repository": "git@github.com:nagomu/calendar-ts.git",
   "author": "@nagomu",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
 }
