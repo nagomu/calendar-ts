@@ -1,9 +1,23 @@
-import { formatDate, lastDayOfMonth, range } from '../utils';
+import { formatDate, isToday, lastDayOfMonth, range } from '../utils';
 
 describe('formatDate', () => {
   it('returns formatted date correctly', () => {
     const date = new Date(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
     expect(formatDate(date)).toEqual('1/1/2020');
+  });
+});
+
+describe('isToday', () => {
+  it('returns true correctly', () => {
+    const date = new Date(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
+    const today = new Date(Date.UTC(2020, 0, 1, 1, 0, 0, 0));
+    expect(isToday(date, today)).toEqual(true);
+  });
+
+  it('returns false correctly', () => {
+    const date = new Date(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
+    const today = new Date(Date.UTC(2020, 0, 2, 0, 0, 0, 0));
+    expect(isToday(date, today)).toEqual(false);
   });
 });
 
