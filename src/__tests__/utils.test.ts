@@ -4,6 +4,7 @@ import {
   firstDay,
   formatDate,
   isToday,
+  lastDay,
   lastDayOfMonth,
   range,
 } from '../utils';
@@ -13,6 +14,14 @@ describe('firstDay', () => {
     jest.spyOn(Date, 'now').mockReturnValue(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
     const days = calendarDays(2020, 0);
     expect(firstDay(days)).toEqual(3);
+  });
+});
+
+describe('lastDay', () => {
+  it('returns Friday correctly', () => {
+    jest.spyOn(Date, 'now').mockReturnValue(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
+    const days = calendarDays(2020, 0);
+    expect(lastDay(days)).toEqual(5);
   });
 });
 
