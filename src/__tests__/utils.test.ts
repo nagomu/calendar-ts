@@ -1,11 +1,20 @@
 import {
   calendarDays,
   daysOfMonth,
+  firstDay,
   formatDate,
   isToday,
   lastDayOfMonth,
   range,
 } from '../utils';
+
+describe('firstDay', () => {
+  it('returns Wednesday correctly', () => {
+    jest.spyOn(Date, 'now').mockReturnValue(Date.UTC(2020, 0, 1, 0, 0, 0, 0));
+    const days = calendarDays(2020, 0);
+    expect(firstDay(days)).toEqual(3);
+  });
+});
 
 describe('formatDate', () => {
   it('returns formatted date correctly', () => {

@@ -1,5 +1,7 @@
 import { CalendarDate } from './';
 
+export const firstDay = (days: CalendarDate[]): number => days[0].date.getDay();
+
 export const formatDate = (date: Date): string =>
   new Intl.DateTimeFormat('en-US').format(date);
 
