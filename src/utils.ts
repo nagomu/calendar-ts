@@ -1,4 +1,4 @@
-import { CalendarDate } from './';
+import { CalendarDate, CalendarList } from './';
 
 export const firstDay = (days: CalendarDate[]): number => days[0].date.getDay();
 
@@ -33,7 +33,7 @@ export const calendarDays = (year: number, month: number): CalendarDate[] => {
   });
 };
 
-export const fill = (days: CalendarDate[]): Array<CalendarDate | undefined> => {
+export const fill = (days: CalendarDate[]): CalendarList => {
   const first = range(1, firstDay(days)).map(() => undefined);
   const last = range(1, 6 - lastDay(days)).map(() => undefined);
   return [...first, ...days, ...last];
