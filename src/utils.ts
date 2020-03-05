@@ -14,3 +14,6 @@ export const range = (start: number, end: number): number[] => {
   for (let i = start; i <= end; i++) list.push(i);
   return list;
 };
+
+export const daysOfMonth = (year: number, month: number): number[] =>
+  range(1, lastDayOfMonth(year, month));

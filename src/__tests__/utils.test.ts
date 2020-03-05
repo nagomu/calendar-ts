@@ -1,4 +1,10 @@
-import { formatDate, isToday, lastDayOfMonth, range } from '../utils';
+import {
+  daysOfMonth,
+  formatDate,
+  isToday,
+  lastDayOfMonth,
+  range,
+} from '../utils';
 
 describe('formatDate', () => {
   it('returns formatted date correctly', () => {
@@ -31,5 +37,19 @@ describe('range', () => {
   it('returns array correctly', () => {
     const expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     expect(range(0, 10)).toEqual(expected);
+  });
+});
+
+describe('daysOfMonth', () => {
+  it('returns numbers correctly', () => {
+    const expected = [];
+    for (let i = 1; i <= 31; i++) expected.push(i);
+    expect(daysOfMonth(2020, 0)).toEqual(expected);
+  });
+
+  it('returns numbers correctly if even leap year', () => {
+    const expected = [];
+    for (let i = 1; i <= 29; i++) expected.push(i);
+    expect(daysOfMonth(2020, 1)).toEqual(expected);
   });
 });
