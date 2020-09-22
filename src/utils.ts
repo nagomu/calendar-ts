@@ -27,7 +27,7 @@ export const daysOfMonth = (year: number, month: number): number[] =>
 
 export const calendarDays = (year: number, month: number): CalendarDate[] => {
   const today = new Date(Date.now());
-  return daysOfMonth(year, month).map(i => {
+  return daysOfMonth(year, month).map((i) => {
     const date = new Date(Date.UTC(year, month, i, 0, 0, 0));
     return { date, isToday: isToday(date, today) };
   });
